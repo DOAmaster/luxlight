@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/smiler.ogg-1a39ca31031ee3b8c1247c4d8c92eb04.oggstr"
+
+[deps]
+
+source_file="res://sound/smiler.ogg"
+dest_files=[ "res://.import/smiler.ogg-1a39ca31031ee3b8c1247c4d8c92eb04.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

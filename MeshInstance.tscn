@@ -1,0 +1,32 @@
+[gd_scene load_steps=4 format=2]
+
+[sub_resource type="PlaneMesh" id=1]
+subdivide_width = 32
+subdivide_depth = 32
+
+[sub_resource type="Shader" id=2]
+code = "shader_type spatial;
+
+uniform float height_scale = 0.5;
+uniform sampler2D noise;
+uniform sampler2D normalmap;
+
+varying vec2 vertex_position;
+
+void vertex() {
+  vertex_position = VERTEX.xz / 2.0;
+  float height = texture(noise, vertex_position).x * height_scale;
+  VERTEX.y += height * height_scale;
+}
+
+void fragment() {
+  NORMALMAP = texture(normalmap, vertex_position).xyz;
+}"
+
+[sub_resource type="ShaderMaterial" id=3]
+shader = SubResource( 2 )
+shader_param/height_scale = 0.5
+
+[node name="MeshInstance" type="MeshInstance"]
+mesh = SubResource( 1 )
+material/0 = SubResource( 3 )
